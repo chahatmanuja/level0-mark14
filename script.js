@@ -18,11 +18,14 @@ function submitHandler() {
 
 
 function calculateProfitAndLoss(initial, quantity, current) {
+    if( initial == 0 || initial == undefined || initial <0 || quantity == 0 || quantity == undefined || quantity <0 || current == 0 || current == undefined || current <0 ){
+        showOutput('Please enter valid fields');
+    }else{
     if(initial > current) {
         var loss = (initial - current) * quantity;
         var lossPercentage = (loss / initial) * 100;
 
-        showOutput('the loss is' +loss+ ' and the percent is ' +lossPercentage);
+        showOutput('the loss is ' +loss+ ' and the percent is ' +lossPercentage);
         
     } else if (current > initial) {
         var profit = (current - initial) * quantity;
@@ -31,7 +34,7 @@ function calculateProfitAndLoss(initial, quantity, current) {
 
     } else {
         showOutput('No pain no gain and no gain no pain');
-    }
+    }}
 }
 
 function showOutput(message) {
